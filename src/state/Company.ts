@@ -1,4 +1,4 @@
-type Company = {
+export type Company = {
   tier: number;
   logo: string;
   name: string;
@@ -6,5 +6,3 @@ type Company = {
   maxShares: number;
   sharesRemaining: number;
 };
-
-export { Company };
