@@ -1,22 +1,19 @@
-import { Component, For } from "solid-js";
-
 import styles from "./App.module.css";
-import { CompanyComponent } from "./components/CompanyComponent";
-
+import {Component, For} from "solid-js";
+import {CompanyComponent} from "./components/CompanyComponent";
 import {gameState} from "./state/gamesState"
 
 const App: Component = () => {
-  return (
-    <div class={styles.App}>
-      <For each={gameState.companies}>{
-      (c) => {
-          return <CompanyComponent company={c}/>
-        }
-          
-        }
-      </For>
-    </div>
-  );
+    return (
+        <div class={styles.App}>
+            <For each={gameState.companies}>{(company) =>
+                (
+                    <CompanyComponent company={company}/>
+                )
+            }
+            </For>
+        </div>
+    );
 };
 
 export default App;

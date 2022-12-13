@@ -4,7 +4,7 @@ type Company = {
   name: string;
   size: number;
   maxShares: number;
-  sharesRemaning: number;
+  sharesRemaining: number;
 };
 
 export { Company };

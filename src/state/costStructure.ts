@@ -18,22 +18,38 @@ Note: If 2 or more players tie for secondary, they get secondary / numPlayers (r
 
 */
 
+export const getSizeFactor = (size : number) => {
+    if(size < 2) return 0;
+    else if(size < 6) return size;
+    else if(size < 11) return 6;
+    else if(size < 21) return 7;
+    else if(size < 31) return 8;
+    else if(size < 41) return 9;
+    else return 10;
+}
+
+const costTable = [
+    [0, 0, 200, 300, 400, 500, 600, 700, 800, 900, 1000],
+    [0, 0, 300, 400, 500, 600, 700, 800, 900, 1000, 1100],
+    [0, 0, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200]
+]
+
 export const calcSharePrice = (tier : number, size : number) => {
-    const tierBonus = (tier - 1) * 100;
-    let factor;
-    if (size < 6) factor = size;
-    else if(size < 11) factor = 6;
-    else if(size < 21) factor = 7;
-    else if(size < 31) factor = 8;
-    else factor = 9;
+    if(!costTable[tier]) return 0;
 
-    return (100 * factor) + tierBonus
+    return costTable[tier][getSizeFactor(size)];
 }
 
-export const getPrimaryPayout = (tier: number, size: number) => {
-    return 10 * calcSharePrice(tier, size);
+export const getPrimaryPayout = (tier: number, size: number, numTied= 1) => {
+    const payout = 10 * calcSharePrice(tier, size);
+    if(numTied > 1) {
+        // Payout is primary plus secondary.
+        return (payout * 1.5) / numTied
+    } else {
+        return payout;
+    }
 }
 
-export const getSecondaryPayout = (tier: number, size: number) => {
-    return getPrimaryPayout(tier, size) / 2;
+export const getSecondaryPayout = (tier: number, size: number, numTied= 1) => {
+    return (getPrimaryPayout(tier, size) / 2) / numTied;
 }

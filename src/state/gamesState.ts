@@ -17,7 +17,7 @@ type gameState = {
 const defaultState = {
   companies: [
     {
-      tier: 1,
+      tier: 0,
       logo: "logo",
       name: "coal",
       size: 0,
@@ -25,7 +25,7 @@ const defaultState = {
       sharesRemaining: 25,
     },
     {
-      tier: 1,
+      tier: 0,
       logo: "logo",
       name: "gas",
       size: 0,
@@ -33,7 +33,7 @@ const defaultState = {
       sharesRemaining: 25,
     },
     {
-      tier: 2,
+      tier: 1,
       logo: "logo",
       name: "hydro",
       size: 0,
@@ -41,7 +41,7 @@ const defaultState = {
       sharesRemaining: 25,
     },
     {
-      tier: 2,
+      tier: 1,
       logo: "logo",
       name: "solar",
       size: 0,
@@ -49,7 +49,7 @@ const defaultState = {
       sharesRemaining: 25,
     },
     {
-      tier: 3,
+      tier: 2,
       logo: "logo",
       name: "wind",
       size: 0,

@@ -17,7 +17,7 @@ export const CompanyComponent: Component<{ company: Company }> = (props) => {
       <span>Size: {company.size}</span>
       <br />
       <span>
-        Shares: {company.sharesRemaning}/{company.maxShares}
+        Shares: {company.sharesRemaining}/{company.maxShares}
       </span>
       <br />
       <span>Share price: {calcSharePrice(company.tier, company.size)}</span>
