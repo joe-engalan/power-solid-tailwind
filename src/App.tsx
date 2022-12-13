@@ -1,25 +1,20 @@
-import type { Component } from "solid-js";
+import { Component, For } from "solid-js";
 
-import logo from "./logo.svg";
 import styles from "./App.module.css";
+import { CompanyComponent } from "./components/CompanyComponent";
+
+import {gameState} from "./state/gamesState"
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p class="text-green-500 font-bold animate-bounce animate-infinite">
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
+      <For each={gameState.companies}>{
+      (c) => {
+          return <CompanyComponent company={c}/>
+        }
+          
+        }
+      </For>
     </div>
   );
 };

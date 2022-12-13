@@ -1,6 +1,6 @@
 # UI
 
-UI description for [a relative link](power.md, "Power")
+UI description for [Power](power.md, "Power")
 
 ---
 

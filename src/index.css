@@ -14,3 +14,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+developedPlot {
+  margin: 5;
+  border: 1px solid;
+}
